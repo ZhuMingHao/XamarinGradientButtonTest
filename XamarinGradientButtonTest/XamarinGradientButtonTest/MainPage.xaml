@@ -5,7 +5,7 @@
              x:Class="XamarinGradientButtonTest.MainPage">
 
     <StackLayout>
-        <local:GradientButton BorderColor="Black" BorderRadius="5" BorderWidth="8" WidthRequest="50" HeightRequest="44" VerticalOptions="Start" HorizontalOptions="Start"/>
+        <local:GradientButton BorderColor="Black" BorderRadius="5" StartColor="Red" BorderWidth="8" WidthRequest="50" HeightRequest="44" VerticalOptions="Start" HorizontalOptions="Start"/>
     </StackLayout>
 
 </ContentPage>

@@ -38,18 +38,19 @@ namespace XamarinGradientButtonTest.UWP
         }
         void UpdateBorderColor()
         {
-            Control.BorderBrush = Element.BorderColor != Color.Default ? Element.BorderColor.ToGradientBrush() : (Brush)Windows.UI.Xaml.Application.Current.Resources["ButtonBorderThemeBrush"];
+            var gradientButton = Element as GradientButton;
+            Control.BorderBrush = gradientButton.BorderColor != Color.Default ? Element.BorderColor.ToGradientBrush(gradientButton.StartColor) : (Brush)Windows.UI.Xaml.Application.Current.Resources["ButtonBorderThemeBrush"];
         }
 
     }
     internal static class ConvertExtensions
     {
-        public static Brush ToGradientBrush(this Color color)
+        public static Brush ToGradientBrush(this Color color, Color StartColor)
         {
             var GradientBrush = new LinearGradientBrush();
             GradientBrush.StartPoint = new Windows.Foundation.Point(0.5, 0);
             GradientBrush.EndPoint = new Windows.Foundation.Point(0.5, 1);
-            GradientBrush.GradientStops.Add(new GradientStop() { Color = Windows.UI.Colors.LightGray, Offset = 0.0 });
+            GradientBrush.GradientStops.Add(new GradientStop() { Color = StartColor.ToWindowsColor(), Offset = 0.0 });
             GradientBrush.GradientStops.Add(new GradientStop() { Color = color.ToWindowsColor(), Offset = 1.0 });
             return GradientBrush;
         }
