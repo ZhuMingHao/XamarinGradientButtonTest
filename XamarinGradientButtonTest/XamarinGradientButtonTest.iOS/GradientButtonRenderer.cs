@@ -24,7 +24,7 @@ namespace XamarinGradientButtonTest.iOS
             base.OnElementChanged(e);
 
             gradient = new CAGradientLayer();
-            gradient.Colors = new CGColor[] { UIColor.Gray.CGColor, Element.BorderColor.ToCGColor() };
+            gradient.Colors = new CGColor[] { ((GradientButton)Element).StartColor.ToCGColor(), Element.BorderColor.ToCGColor() };
 
             shape = new CAShapeLayer();
             shape.LineWidth = (nfloat)(Element.BorderWidth);
